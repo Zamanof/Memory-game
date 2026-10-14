@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memory Card Matching Game</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <div class="brand">
+        <span class="logo"></span>
+        <div class="titles">
+          <h1>Memory <span>Game</span></h1>
+          <p class="subtitle">Yaddaş oyunu — cütləri tap!</p>
+        </div>
+      </div>
+      <div class="controls">
+        <div class="moves">
+          <span class="moves-label">Moves</span>
+          <span class="moves-value" id="moves">0</span>
+        </div>
+        <button class="btn" id="restart"><span class="icon">&#8635;</span>Restart</button>
+      </div>
+    </header>
+
+    <p class="status" id="status"></p>
+
+    <section class="board-wrap">
+      <div class="board" id="board"></div>
+
+      <div class="overlay" id="overlay" hidden>
+        <div class="win-card">
+          <h2>You Win!</h2>
+          <p class="win-text">Təbriklər! <strong id="final-moves">0</strong> gedişdə tapdın.</p>
+          <button class="btn btn-primary" id="play-again">Play Again</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
