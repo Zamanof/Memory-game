@@ -1,3 +1,4 @@
+/* Bütün rəngləri bir yerdə saxlayırıq, sonra var(--ad) ilə çağırırıq */
 :root {
   --navy: #14365c;
   --blue: #2b84d8;
@@ -17,10 +18,12 @@
   --shadow-lift: 0 14px 28px rgba(20, 54, 92, 0.16);
 }
 
+/* Padding-i enin içinə daxil edir, ölçü dağılmasın */
 * {
   box-sizing: border-box;
 }
 
+/* Səhifənin kənar boşluqlarını sıfırlayırıq */
 html,
 body {
   margin: 0;
@@ -28,6 +31,7 @@ body {
   min-height: 100%;
 }
 
+/* Səhifənin fonu, şrifti və məzmunu ortaya yığır */
 body {
   background-color: var(--bg);
   background-image: radial-gradient(rgba(43, 132, 216, 0.1) 1.5px, transparent 1.6px);
@@ -39,7 +43,7 @@ body {
   padding: 36px 18px 56px;
 }
 
-/* Decorative shapes: fixed and behind content so they never affect layout. */
+/* Dekorativ dairələrin ortaq qaydaları: arxada qalır, klikə mane olmur */
 body::before,
 body::after {
   content: "";
@@ -49,6 +53,7 @@ body::after {
   border-radius: 50%;
 }
 
+/* Sağdakı böyük mavi ləkə */
 body::before {
   width: 440px;
   height: 440px;
@@ -57,6 +62,7 @@ body::before {
   background: radial-gradient(circle, rgba(43, 132, 216, 0.13), rgba(43, 132, 216, 0.03) 70%, transparent 72%);
 }
 
+/* Sol yuxarıdakı narıncı halqa */
 body::after {
   width: 300px;
   height: 300px;
@@ -65,11 +71,13 @@ body::after {
   border: 14px solid rgba(249, 123, 34, 0.16);
 }
 
+/* Oyunun əsas qutusu, çox enli olmasın */
 .app {
   width: 100%;
   max-width: 660px;
 }
 
+/* Başlıq sətri: solda ad, sağda Moves və Restart */
 .header {
   position: relative;
   display: flex;
@@ -82,7 +90,7 @@ body::after {
   border-bottom: 2px solid var(--border);
 }
 
-/* Short accent segment sitting on top of the header rule. */
+/* Başlıq xəttinin solundakı qısa narıncı hissə */
 .header::after {
   content: "";
   position: absolute;
@@ -93,12 +101,14 @@ body::after {
   background: var(--orange);
 }
 
+/* Logo nişanı ilə başlığı yan-yana qoyur */
 .brand {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
+/* İki kvadratdan ibarət kiçik logo üçün yer */
 .logo {
   position: relative;
   flex: none;
@@ -106,6 +116,7 @@ body::after {
   height: 30px;
 }
 
+/* Hər iki kvadratın ortaq qaydaları */
 .logo::before,
 .logo::after {
   content: "";
@@ -113,6 +124,7 @@ body::after {
   border-radius: 4px;
 }
 
+/* Yuxarı soldakı mavi kvadrat */
 .logo::before {
   width: 18px;
   height: 18px;
@@ -121,6 +133,7 @@ body::after {
   background: var(--blue);
 }
 
+/* Aşağı sağdakı tünd kvadrat */
 .logo::after {
   width: 14px;
   height: 14px;
@@ -129,6 +142,7 @@ body::after {
   background: var(--navy);
 }
 
+/* "Memory Game" başlığı */
 h1 {
   margin: 0;
   font-size: clamp(1.5rem, 4.6vw, 2.1rem);
@@ -138,10 +152,12 @@ h1 {
   color: var(--navy);
 }
 
+/* "Game" sözünü mavi edir */
 h1 span {
   color: var(--blue);
 }
 
+/* Başlığın altındakı kiçik izah yazısı */
 .subtitle {
   margin: 6px 0 0;
   color: var(--muted);
@@ -151,12 +167,14 @@ h1 span {
   letter-spacing: 0.17em;
 }
 
+/* Moves və Restart düyməsini yan-yana qoyur */
 .controls {
   display: flex;
   align-items: stretch;
   gap: 12px;
 }
 
+/* Gediş sayğacının qutusu */
 .moves {
   display: flex;
   flex-direction: column;
@@ -170,6 +188,7 @@ h1 span {
   box-shadow: var(--shadow);
 }
 
+/* "Moves" yazısı */
 .moves-label {
   font-size: 0.58rem;
   font-weight: 700;
@@ -178,6 +197,7 @@ h1 span {
   color: var(--muted);
 }
 
+/* Gediş rəqəmi */
 .moves-value {
   font-size: 1.45rem;
   font-weight: 700;
@@ -186,6 +206,7 @@ h1 span {
   color: var(--navy);
 }
 
+/* Restart və Play Again düymələrinin ümumi görünüşü */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -205,30 +226,36 @@ h1 span {
   transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
 }
 
+/* Siçan düymənin üzərində olanda */
 .btn:hover {
   background: var(--orange-dark);
   transform: translateY(-2px);
   box-shadow: 0 12px 24px rgba(249, 123, 34, 0.38);
 }
 
+/* Düyməyə basılanda */
 .btn:active {
   transform: translateY(0);
 }
 
+/* Klaviatura ilə seçiləndə mavi çərçivə */
 .btn:focus-visible {
   outline: 3px solid var(--blue);
   outline-offset: 3px;
 }
 
+/* Düymənin içindəki ↻ işarəsi */
 .btn .icon {
   font-size: 1.05rem;
   line-height: 1;
 }
 
+/* Play Again düyməsi bir az daha enli olsun */
 .btn-primary {
   padding: 15px 28px;
 }
 
+/* Lövhənin üstündəki "yadda saxla / cütləri tap" yazısı */
 .status {
   display: flex;
   align-items: center;
@@ -242,6 +269,7 @@ h1 span {
   color: var(--muted);
 }
 
+/* Yazının solunda və sağında nazik xətt */
 .status::before,
 .status::after {
   content: "";
@@ -250,26 +278,30 @@ h1 span {
   background: var(--border);
 }
 
-/* The rules would float alone once the text is cleared on win. */
+/* Yazı boş olanda xətlər də gizlənsin */
 .status:empty::before,
 .status:empty::after {
   display: none;
 }
 
+/* Geriyə saymadakı saniyə rəqəmini narıncı edir */
 .status b {
   color: var(--orange);
 }
 
+/* Lövhə və qalib mesajı eyni yerdə dayansın */
 .board-wrap {
   position: relative;
 }
 
+/* 12 kartı 4 sütunda düzürük */
 .board {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 16px;
 }
 
+/* Hər kartın ölçüsü və 3D çevirmə üçün yer */
 .card {
   position: relative;
   aspect-ratio: 3 / 4;
@@ -277,6 +309,7 @@ h1 span {
   cursor: pointer;
 }
 
+/* Kartın çevrilən hissəsi */
 .card-inner {
   position: absolute;
   inset: 0;
@@ -284,10 +317,12 @@ h1 span {
   transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
+/* Açıq kartda ön tərəf görünür */
 .card.flipped .card-inner {
   transform: rotateY(180deg);
 }
 
+/* Ön və arxa tərəfin ortaq qaydaları */
 .card-front,
 .card-back {
   position: absolute;
@@ -303,7 +338,7 @@ h1 span {
   -webkit-backface-visibility: hidden;
 }
 
-/* .card-back is the hidden side: orange corner wedge + soft circle behind the "?". */
+/* Kartın bağlı tərəfi: mavi kənar, narıncı künc və "?" */
 .card-back {
   border: 2px solid var(--blue);
   background-image:
@@ -316,6 +351,7 @@ h1 span {
   font-weight: 700;
 }
 
+/* Bağlı kartın sol altındakı nöqtələr */
 .card-back::before {
   content: "";
   position: absolute;
@@ -327,6 +363,7 @@ h1 span {
   background-size: 8px 8px;
 }
 
+/* Bağlı kartın sağ altındakı açıq mavi dairə */
 .card-back::after {
   content: "";
   position: absolute;
@@ -338,7 +375,7 @@ h1 span {
   background: var(--tint);
 }
 
-/* The revealed side uses the wave frame artwork; the logo sits in its clear centre. */
+/* Kartın açıq tərəfi: dalğalı çərçivə şəkli */
 .card-front {
   transform: rotateY(180deg);
   background-image: url("images/card-frame.jpg");
@@ -346,25 +383,29 @@ h1 span {
   background-position: center;
 }
 
+/* Logo şəkli kartın ortasında, dalğalara toxunmasın */
 .card-front img {
   width: 58%;
   height: 46%;
   object-fit: contain;
 }
 
+/* Bağlı kartın üzərinə gələndə bir az qalxır */
 .card:not(.flipped):hover .card-inner {
   transform: translateY(-4px);
 }
 
+/* Hover olanda kölgə bir az güclənir */
 .card:not(.flipped):hover .card-back {
   box-shadow: var(--shadow-lift);
 }
 
-/* A ring, not a fill, so the frame artwork stays visible. */
+/* Tapılmış cütün yaşıl halqası */
 .card.matched .card-front {
   box-shadow: 0 0 0 3px var(--green), var(--shadow);
 }
 
+/* "You Win!" mesajını lövhənin üstünə örtən qat */
 .overlay {
   position: absolute;
   inset: -14px;
@@ -376,10 +417,12 @@ h1 span {
   border-radius: 18px;
 }
 
+/* hidden atributu olanda qat görünməsin */
 .overlay[hidden] {
   display: none;
 }
 
+/* Qalib mesajının ağ qutusu */
 .win-card {
   text-align: center;
   padding: 32px 36px;
@@ -390,6 +433,7 @@ h1 span {
   animation: pop 0.25s ease-out;
 }
 
+/* "You Win!" başlığı */
 .win-card h2 {
   margin: 0 0 10px;
   font-size: clamp(1.7rem, 6vw, 2.2rem);
@@ -398,17 +442,20 @@ h1 span {
   color: var(--navy);
 }
 
+/* Qalib mesajının izah yazısı */
 .win-text {
   margin: 0 0 22px;
   font-size: 0.9rem;
   color: var(--muted);
 }
 
+/* Yekun gediş rəqəmini narıncı edir */
 .win-text strong {
   color: var(--orange);
   font-variant-numeric: tabular-nums;
 }
 
+/* Qalib qutusunun kiçikdən böyümə animasiyası */
 @keyframes pop {
   from {
     transform: scale(0.9);
@@ -420,6 +467,7 @@ h1 span {
   }
 }
 
+/* Dar ekranda kartlar 3 sütuna keçir */
 @media (max-width: 460px) {
   .board {
     grid-template-columns: repeat(3, 1fr);
@@ -440,6 +488,7 @@ h1 span {
   }
 }
 
+/* Animasiya effektlərinin azaldılmasını seçmiş istifadəçilər üçün hərəkətli effektləri söndürmək */
 @media (prefers-reduced-motion: reduce) {
   .card-inner,
   .btn,
