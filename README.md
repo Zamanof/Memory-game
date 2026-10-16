@@ -19,11 +19,11 @@ Oyunu açmaq üçün `index.html` faylına iki dəfə klikləyin. Server lazım 
 
 ```js
 const logos = [        // oyunun 6 cütü üçün şəkil adları
-  "Cisco-logo.png",
-  "html.png",
-  "linux.png",
-  "photoshop.webp",
-  "python.webp",
+  "Cybersecurity.png",
+  "Design.png",
+  "Development.png",
+  "Junior.png",
+  "Robotics.png",
   "step.png",
 ];
 ```
@@ -66,7 +66,7 @@ Bunlar oyunun yaddaşıdır. `const` yerinə `let` işlənir, çünki bu dəyər
 for (const logo of [...logos, ...logos].sort(() => Math.random() - 0.5)) {
   const card = document.createElement("div");  // yaddaşda yeni element, hələ ekranda yox
   card.className = "card flipped";             // "flipped" = kart açıq; baxış mərhələsi üçün
-  card.dataset.logo = logo;                    // HTML-də data-logo="html.png" kimi saxlanır
+  card.dataset.logo = logo;                    // HTML-də data-logo="Robotics.png" kimi saxlanır
   card.innerHTML = `
     <div class="card-inner">
       <span class="card-back">?</span>

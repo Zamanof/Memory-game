@@ -1,9 +1,9 @@
 const logos = [
-  "Cisco-logo.png",
-  "html.png",
-  "linux.png",
-  "photoshop.webp",
-  "python.webp",
+  "Cybersecurity.png",
+  "Design.png",
+  "Development.png",
+  "Junior.png",
+  "Robotics.png",
   "step.png",
 ];
 
